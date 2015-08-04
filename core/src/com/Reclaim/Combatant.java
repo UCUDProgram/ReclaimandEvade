@@ -1,5 +1,10 @@
-package edu.udel.dlaw.ReclaimandEvade;
-import edu.udel.jatlas.gameframework.Position;
+package com.Reclaim;
+//import edu.udel.jatlas.gameframework.Position;
+
+
+/*	REDO THE PLAYER CLASS BASED ON GAMER SELECTING THEIR GAME CHARACTER 
+
+*/
 
 public class Combatant {
 	protected String name;
@@ -29,6 +34,10 @@ public class Combatant {
 		this.fire = fired;
 	}
 
+	public Combatant(){
+		
+	}
+	
 	// Getters and Setters for comLocation, health, direction and fired
 	// Getters for name, movement Speed and Weapon
 	

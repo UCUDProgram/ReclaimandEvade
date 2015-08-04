@@ -1,8 +1,12 @@
-package edu.udel.dlaw.ReclaimandEvade;
+package com.Reclaim;
 
-import edu.udel.jatlas.gameframework.ConsoleListener;
-import edu.udel.jatlas.gameframework.Position;
-import edu.udel.jatlas.gameframework.Tickable;
+//import edu.udel.jatlas.gameframework.ConsoleListener;
+//import edu.udel.jatlas.gameframework.Position;
+//import edu.udel.jatlas.gameframework.Tickable;
+//import edu.udel.jatlas.gameframework.Game;
+//import edu.udel.jatlas.snake.SnakeAI;
+//import edu.udel.dlaw.ReclaimandEvade.Wall;
+//import edu.udel.dlaw.ReclaimandEvade.ReclaimandEvadeAI;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -10,18 +14,26 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
-
-import edu.udel.jatlas.gameframework.Game;
-//import edu.udel.jatlas.snake.SnakeAI;
-
-import edu.udel.dlaw.ReclaimandEvade.Wall;
-import edu.udel.dlaw.ReclaimandEvade.ReclaimandEvadeAI;
-
 import java.util.Iterator;
+
+import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.Screen;
+
 // David L. Law
 // David Schmetterling
 
-public class ReclaimandEvadeGame extends Game implements Tickable {
+
+/*
+ * REDO THIS CLASS BASED ON THE GAME AND WHAT THE GAMER WILL SEE AND BE ABLE TO DO 
+ */
+
+
+
+// implements Tickable
+public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationListener {
+	private ReclaimGame raEGame;
+	private Player Player;
 	private static double score;
 	private static int livesLeft;
 	private static Player Player1;
@@ -75,6 +87,18 @@ public class ReclaimandEvadeGame extends Game implements Tickable {
 		Enemies = aEnemy1;
 		Walls = aWall;
 	}
+	
+//	public ReclaimandEvadeGame(ReclaimGame game, Player player1){
+//		this.raEGame = game;
+//		Player1 = player1;
+//	}
+	
+	public ReclaimandEvadeGame(ReclaimGame game, Player player){
+		this.raEGame = game;
+		this.Player= player;
+	}
+	
+	
 																				// GETTERS AND SETTERS FOR RECLAIM AND EVADE GAME
 	
 	public long getRealTimeTickLength() {
@@ -1183,127 +1207,145 @@ public class ReclaimandEvadeGame extends Game implements Tickable {
 	
 	
 	
-	public static void main(String[] args) {
-		// Function for Enemy Check
-//		Enemy JackalSniper = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .002, "Beam Rifle", 2, false, 35);
-//		
-//		System.out.println("Before Functions: The cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffTime() );
-//		System.out.println("Before Functions: The Max cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffMax());
-//		System.out.println("Before Functions: The Position of Jackal Sniper is: " + JackalSniper.getComLocation() );
-//		
-//		JackalSniper.setComLocation(JackalSniper.updatePosition()) ;
-//		JackalSniper.setCoolOffTime();
-//		
-//		System.out.println("After Functions: The cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffTime() );
-//		System.out.println("After Functions: The Max cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffMax());
-//		System.out.println("After Functions: The Position of Jackal Sniper is: " + JackalSniper.getComLocation() );
-//		
-		// Function for relic Placement Test
+	
+	
+	
+//	@Override
+	public void create() {
 		
-		List <Wall>  test = new ArrayList <Wall>();
-		
-		// Wall from (11.5, 10) to (12.5,10)
-		test.add(new Wall(new Position(11.5, 10), new Position(12.5,10) ) );
-					
-		// Wall from (12.5, 10) to (12.5,14)
-		test.add(new Wall(new Position(12.5,10), new Position(12.5,14) ) );
-					
-		// Wall from (12.5, 14) to (14.3,14)
-		test.add(new Wall(new Position(12.5,14), new Position(14.3,14) ) );
-		
-		List<Enemy> enemyList = new ArrayList<Enemy>();
-		
-		enemyList.add(new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .02, "Beam Rifle", 2, false, 35)) ;
-		
-		enemyList.add(new Enemy("GruntSniper", new Position(12.49,12.7), JACKALHEALTH, .05, "Needler", 3, false, 35) );
-		
-		enemyList.add(new Enemy("Jackal", new Position(13.2,13), JACKALHEALTH, .04, "Beam Rifle", 1, false, 35) );
-
-		enemyList.add(new Enemy("Zealot", new Position(12,10.05), JACKALHEALTH, .07, "Beam Rifle", 0, false, 35) );
-		
-		enemyList.add(new Enemy("Grunt", new Position(13.2,13), -10, .04, "Beam Rifle", 1, false, 35) );
-		
-	//	Enemy JackalSniper = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .002, "Beam Rifle", 2, false, 35);
-		
-//		Enemy JackalSniper = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .002, "Beam Rifle", 2, false, 35);
-		
-		Enemy JackalSnipe = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .02, "Beam Rifle", 2, false, 35) ;
-		
-		Enemy GruntSnipe = new Enemy("GruntSniper", new Position(12.49,12.7), JACKALHEALTH, .05, "Needler", 3, false, 35) ;
-		
-		Enemy Jackal = new Enemy("Jackal", new Position(13.2,13), JACKALHEALTH, .04, "Beam Rifle", 1, false, 35) ;
-		
-		
-		Player aPlayerCollision = new Player("Spartan", new Position(11.19,7.7), 100, .5, "Spartan Laser", -1, false, 1.25);
-		
-		Player aPlayerNoCollision = new Player("Spartan", new Position(13,7.7), 100, .5, "Spartan Laser", -1, false, 1.25);
-		
-		List<Relic> reliclist = new ArrayList<Relic>();
-		
-		reliclist.add(new Relic("Virgil", 20, new Position(5,4), false));
-		
-		reliclist.add( new Relic("343 Guilty Spark", 55, new Position(15, 13), false));
-		
-		reliclist.add( new Relic("Catherine Halsey", 85, new Position(14.5, 16), false));
-		reliclist.add( new Relic("Cortana",95, new Position(12, 17), false));
-		
-//		NextLevel theNext = new NextLevel(false, new Position(5.6,7.2)));
-		
-		// null number of Enemys in Level is 7
-		//null, 3, null, null,theNext
-		
-		
-//		ReclaimandEvadeGame game = new ReclaimandEvadeGame(0,3, aPlayerCollision,2,15,reliclist, 6,enemyList,test);		
-		
-		ReclaimandEvadeGame game = startGame();
-		game.addGameListener(new ConsoleListener());
-		game.addGameListener(new ReclaimandEvadeAI(game));
-		game.start();
-		
-		//ENEMY AND PLAYER COLLISION DETECTION
-		
-//		for(Enemy gameEnemy: game.Enemies){
-//			System.out.println("Before Enemy Update: The Position of enemy " +  gameEnemy.getName() + " is " + gameEnemy.getComLocation() );
-//			System.out.println("Before Enemy Update: The Health of enemy " + gameEnemy.getName() + " is " + gameEnemy.getHealth() );
-//			}
-//			
-////			System.out.println("Before Enemy Update: The Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getDirection() );
-////			System.out.println("Before Enemy Update: The Next Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getNextDirection()[0] + " " +
-////					    gameEnemy.getNextDirection()[1] + " " + gameEnemy.getNextDirection()[2] + "." );
-//		
-//		System.out.println("Before Enemy Update: The Health of the Player " + game.Player1.getName() + " is " + game.Player1.getHealth() );
-//		System.out.println("Before Enemy Update: The Position of the Player " +  game.Player1.getName() + " is " + game.Player1.getComLocation() + "\n" );
-//		
-//		
-//		game.onTick();
-//		//game.updateEnemyList();
-//		
-//		for(Enemy gameEnemy: game.Enemies){
-//			System.out.println("After Enemy Update: The Position of enemy " + gameEnemy.getName() + " is " + gameEnemy.getComLocation() );
-//			System.out.println("After Enemy Update: The Health of enemy " + gameEnemy.getName() + " is " + gameEnemy.getHealth() );
-//			}
-//		
-//		System.out.println("After Enemy Update: The Health of the Player " + game.Player1.getName() + " is " + game.Player1.getHealth() );
-//		System.out.println("After Enemy Update: The Position of the Player " + game.Player1.getName() + " is " +  game.Player1.getComLocation() );
-//			
-////			System.out.println("After Enemy Update: The Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getDirection() );
-////			System.out.println("After Enemy Update: The Next Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getNextDirection()[0] + " " +
-////					 + gameEnemy.getNextDirection()[1] + " " + gameEnemy.getNextDirection()[2] + "." );	
-//	}
-
-		
-//		  game.addGameListener(new ConsoleListener());
-		
-	      
 	}
 	
-	private ReclaimandEvadeGame() {
+	
+	@Override
+	public void render(float delta) {
 		
 	}
-	public static ReclaimandEvadeGame makeStartGame() {
-		ReclaimandEvadeGame g = new ReclaimandEvadeGame();
-		return g.startGame();
-	}
+	
+	
+	
+	
+	
+	
+	
+//	public static void main(String[] args) {
+//		// Function for Enemy Check
+////		Enemy JackalSniper = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .002, "Beam Rifle", 2, false, 35);
+////		
+////		System.out.println("Before Functions: The cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffTime() );
+////		System.out.println("Before Functions: The Max cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffMax());
+////		System.out.println("Before Functions: The Position of Jackal Sniper is: " + JackalSniper.getComLocation() );
+////		
+////		JackalSniper.setComLocation(JackalSniper.updatePosition()) ;
+////		JackalSniper.setCoolOffTime();
+////		
+////		System.out.println("After Functions: The cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffTime() );
+////		System.out.println("After Functions: The Max cool off Time of Jackal Sniper is: " + JackalSniper.getCoolOffMax());
+////		System.out.println("After Functions: The Position of Jackal Sniper is: " + JackalSniper.getComLocation() );
+////		
+//		// Function for relic Placement Test
+//		
+//		List <Wall>  test = new ArrayList <Wall>();
+//		
+//		// Wall from (11.5, 10) to (12.5,10)
+//		test.add(new Wall(new Position(11.5, 10), new Position(12.5,10) ) );
+//					
+//		// Wall from (12.5, 10) to (12.5,14)
+//		test.add(new Wall(new Position(12.5,10), new Position(12.5,14) ) );
+//					
+//		// Wall from (12.5, 14) to (14.3,14)
+//		test.add(new Wall(new Position(12.5,14), new Position(14.3,14) ) );
+//		
+//		List<Enemy> enemyList = new ArrayList<Enemy>();
+//		
+//		enemyList.add(new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .02, "Beam Rifle", 2, false, 35)) ;
+//		
+//		enemyList.add(new Enemy("GruntSniper", new Position(12.49,12.7), JACKALHEALTH, .05, "Needler", 3, false, 35) );
+//		
+//		enemyList.add(new Enemy("Jackal", new Position(13.2,13), JACKALHEALTH, .04, "Beam Rifle", 1, false, 35) );
+//
+//		enemyList.add(new Enemy("Zealot", new Position(12,10.05), JACKALHEALTH, .07, "Beam Rifle", 0, false, 35) );
+//		
+//		enemyList.add(new Enemy("Grunt", new Position(13.2,13), -10, .04, "Beam Rifle", 1, false, 35) );
+//		
+//	//	Enemy JackalSniper = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .002, "Beam Rifle", 2, false, 35);
+//		
+////		Enemy JackalSniper = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .002, "Beam Rifle", 2, false, 35);
+//		
+//		Enemy JackalSnipe = new Enemy("JackalSniper", new Position(11.2,7.7), JACKALHEALTH, .02, "Beam Rifle", 2, false, 35) ;
+//		
+//		Enemy GruntSnipe = new Enemy("GruntSniper", new Position(12.49,12.7), JACKALHEALTH, .05, "Needler", 3, false, 35) ;
+//		
+//		Enemy Jackal = new Enemy("Jackal", new Position(13.2,13), JACKALHEALTH, .04, "Beam Rifle", 1, false, 35) ;
+//		
+//		
+//		Player aPlayerCollision = new Player("Spartan", new Position(11.19,7.7), 100, .5, "Spartan Laser", -1, false, 1.25);
+//		
+//		Player aPlayerNoCollision = new Player("Spartan", new Position(13,7.7), 100, .5, "Spartan Laser", -1, false, 1.25);
+//		
+//		List<Relic> reliclist = new ArrayList<Relic>();
+//		
+//		reliclist.add(new Relic("Virgil", 20, new Position(5,4), false));
+//		
+//		reliclist.add( new Relic("343 Guilty Spark", 55, new Position(15, 13), false));
+//		
+//		reliclist.add( new Relic("Catherine Halsey", 85, new Position(14.5, 16), false));
+//		reliclist.add( new Relic("Cortana",95, new Position(12, 17), false));
+//		
+////		NextLevel theNext = new NextLevel(false, new Position(5.6,7.2)));
+//		
+//		// null number of Enemys in Level is 7
+//		//null, 3, null, null,theNext
+//		
+//		
+////		ReclaimandEvadeGame game = new ReclaimandEvadeGame(0,3, aPlayerCollision,2,15,reliclist, 6,enemyList,test);		
+//		
+//		ReclaimandEvadeGame game = startGame();
+//		game.addGameListener(new ConsoleListener());
+////		game.addGameListener(new ReclaimandEvadeAI(game));
+//		game.start();
+//		
+//		//ENEMY AND PLAYER COLLISION DETECTION
+//		
+////		for(Enemy gameEnemy: game.Enemies){
+////			System.out.println("Before Enemy Update: The Position of enemy " +  gameEnemy.getName() + " is " + gameEnemy.getComLocation() );
+////			System.out.println("Before Enemy Update: The Health of enemy " + gameEnemy.getName() + " is " + gameEnemy.getHealth() );
+////			}
+////			
+//////			System.out.println("Before Enemy Update: The Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getDirection() );
+//////			System.out.println("Before Enemy Update: The Next Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getNextDirection()[0] + " " +
+//////					    gameEnemy.getNextDirection()[1] + " " + gameEnemy.getNextDirection()[2] + "." );
+////		
+////		System.out.println("Before Enemy Update: The Health of the Player " + game.Player1.getName() + " is " + game.Player1.getHealth() );
+////		System.out.println("Before Enemy Update: The Position of the Player " +  game.Player1.getName() + " is " + game.Player1.getComLocation() + "\n" );
+////		
+////		
+////		game.onTick();
+////		//game.updateEnemyList();
+////		
+////		for(Enemy gameEnemy: game.Enemies){
+////			System.out.println("After Enemy Update: The Position of enemy " + gameEnemy.getName() + " is " + gameEnemy.getComLocation() );
+////			System.out.println("After Enemy Update: The Health of enemy " + gameEnemy.getName() + " is " + gameEnemy.getHealth() );
+////			}
+////		
+////		System.out.println("After Enemy Update: The Health of the Player " + game.Player1.getName() + " is " + game.Player1.getHealth() );
+////		System.out.println("After Enemy Update: The Position of the Player " + game.Player1.getName() + " is " +  game.Player1.getComLocation() );
+////			
+//////			System.out.println("After Enemy Update: The Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getDirection() );
+//////			System.out.println("After Enemy Update: The Next Direction of enemy " + gameEnemy.getName() + " is " + gameEnemy.getNextDirection()[0] + " " +
+//////					 + gameEnemy.getNextDirection()[1] + " " + gameEnemy.getNextDirection()[2] + "." );	
+////	}
+//
+//		
+////		  game.addGameListener(new ConsoleListener());
+//		
+//	      
+//	}
+	
+	
+//	public static ReclaimandEvadeGame makeStartGame() {
+//		ReclaimandEvadeGame g = new ReclaimandEvadeGame();
+//		return g.startGame();
+//	}
 	
     public boolean isWall(Position p) {
         return wallsContain(Walls, p);
@@ -1326,4 +1368,105 @@ public class ReclaimandEvadeGame extends Game implements Tickable {
 				+ ", numberLevelEnemies=" + numberLevelEnemies + ", Enemies="
 				+ Enemies + ", Walls=" + Walls + "]";
 	}
+	
+	
+	
+	
+	
+	
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean keyDown(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyUp(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char character) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(int amount) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void render() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
+	
+	
 }

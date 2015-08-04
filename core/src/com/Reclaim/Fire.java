@@ -1,8 +1,8 @@
-package edu.udel.dlaw.ReclaimandEvade;
+package com.Reclaim;
 
-import edu.udel.jatlas.gameframework.Action;
+//import edu.udel.jatlas.gameframework.Action;
 
-public class Fire implements Action<ReclaimandEvadeGame>{
+public class Fire {
 	private boolean fired;
 	
 	public Fire (boolean fire){

@@ -1,9 +1,9 @@
-package edu.udel.dlaw.ReclaimandEvade;
+package com.Reclaim;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import edu.udel.jatlas.gameframework.Position;
+//import edu.udel.jatlas.gameframework.Position;
 
 public class Relic implements Iterable<Position>{
 	private String relicName;

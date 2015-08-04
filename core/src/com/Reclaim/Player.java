@@ -1,8 +1,14 @@
-package edu.udel.dlaw.ReclaimandEvade;
-import edu.udel.jatlas.gameframework.Position;
+package com.Reclaim;
+//import edu.udel.jatlas.gameframework.Position;
+
+
+/*	
+ * REDO THE PLAYER CLASS BASED ON GAMER SELECTING THEIR GAME CHARACTER 
+ */
+
 
 public class Player extends Combatant{
-public double damageBonus;
+	private double damageBonus;
 
 	public Player (String name, Position playerLocation , int health, double movementSpeed, String weapon, int direction, boolean fire, double damBonus){
 		super(name, playerLocation, health, movementSpeed, weapon, direction, fire);
@@ -12,6 +18,10 @@ public double damageBonus;
 	
 	// Getters and Setters for playerLocation, health, direction and fire
 	// Getters for name, movementSpeed, weapon and damBonus
+	
+	public Player (){
+		
+	}
 	
 	public double getDamageBonus() {
 		return damageBonus;

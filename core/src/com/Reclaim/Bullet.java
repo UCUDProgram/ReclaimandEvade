@@ -1,5 +1,6 @@
-package edu.udel.dlaw.ReclaimandEvade;
-import edu.udel.jatlas.gameframework.Position;
+package com.Reclaim;
+
+//import edu.udel.jatlas.gameframework.Position;
 
 public class Bullet {
 	private double bulletDamage;
