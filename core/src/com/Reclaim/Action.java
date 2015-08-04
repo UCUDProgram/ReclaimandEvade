@@ -1,4 +1,9 @@
-package edu.udel.jatlas.gameframework;
+package com.Reclaim;
+/*
+ * This code came from a professor, who provided the code to students to hellp with game Development
+ * The Professor was James Atlas, at the University of Delaware
+ */
+
 
 /**
  * An Action is something that a player can perform

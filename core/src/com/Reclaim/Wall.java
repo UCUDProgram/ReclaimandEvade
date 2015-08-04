@@ -1,12 +1,15 @@
-package edu.udel.dlaw.ReclaimandEvade;
-
+package com.Reclaim;
+/*
+ * This code came from a professor, who provided the code to students to hellp with game Development
+ * The Professor was James Atlas, at the University of Delaware
+ */
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import edu.udel.jatlas.gameframework.Position;
+//import edu.udel.jatlas.gameframework.Position;
 
 /**
  * A simple straight-line wall that must be at a 90 degree

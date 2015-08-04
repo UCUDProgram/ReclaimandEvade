@@ -1,7 +1,11 @@
-package edu.udel.dlaw.ReclaimandEvade;
-import edu.udel.jatlas.gameframework.Action;
-//import edu.udel.jatlas.snake.SnakeGame;
+package com.Reclaim;
+/*
+ * This code came from a professor, who provided the code to students to hellp with game Development
+ * The Professor was James Atlas, at the University of Delaware
+ */
 
+//import edu.udel.jatlas.gameframework.Action;
+//import edu.udel.jatlas.snake.SnakeGame;
 
 public class Movement implements Action<ReclaimandEvadeGame>{
 	private int direction;
