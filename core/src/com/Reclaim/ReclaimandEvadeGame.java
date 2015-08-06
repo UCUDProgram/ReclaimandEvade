@@ -198,7 +198,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 																					// INITIALIZATION OF GAME
 	// Initialization of pieces
-	public static void nextLevelInitialization(){
+	public void nextLevelInitialization(){
 		getPlayer1().setHealth(PLAYERHEALTH);
 		setNumberLevelEnemies(setEnemyTotal());
 		setWalls(levelWalls());
@@ -340,14 +340,14 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	// Set number of enemies that appear on a level
 	// Produces a number representing the number of enemies that a level will have
-	public static int setEnemyTotal(){
+	public int setEnemyTotal(){
 		return (getLevel() * 2);
 	}
 	
 	
 	// Consumes a number representing the number of enemies in the list
 	// Produces a List of Enemies that has as many enemies as the input number
-	public static List<Enemy> setEnemyList(){
+	public List<Enemy> setEnemyList(){
 		List<Enemy> enemyList = new ArrayList <Enemy>();
 		Enemy[] enemList = new Enemy[setEnemyArrayLength()];
 		enemList = setEnemyArray();
@@ -361,7 +361,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	}
 	
 	// Alter these values based on ticks and realistic movement
-	public static double setEnemyMovementSpeed (String enemyName){
+	public double setEnemyMovementSpeed (String enemyName){
 		double enemyMoveSpeed = 0;
 
 		if (enemyName == "GruntScout")
@@ -390,7 +390,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	// Logic: Will take levelnumber and determine which enemies to add
 	// Will return the array 
-	public static Enemy[] setEnemyArray(){
+	public Enemy[] setEnemyArray(){
 		int arrayIndex = setEnemyArrayLength();
 //		Enemy[] possEnemy;
 		Enemy[] possEnemy = new Enemy[arrayIndex];
@@ -462,7 +462,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	// Number will be the level number to determine the number of enemies in the Enemies array
 	// Level number
-	public static int setEnemyArrayLength(){
+	public int setEnemyArrayLength(){
 		int enemLength = 0;
 		if (getLevel() == 1 || getLevel() == 8)
 			enemLength = 3;
@@ -480,7 +480,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	// Set Enemies' Initial Position
 	// Function will set this value
-	public static Position setEnemyPosition() {
+	public Position setEnemyPosition() {
 		
 	Position EnemyPosition = DEFAULTPOSITION;
 		int i = 0;
@@ -523,7 +523,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	}
 	
 	//Helper Function 1 to Generate an Enemies' Start Position 
-	public static Position EnemPos(int rowdet, int coldet){
+	public Position EnemPos(int rowdet, int coldet){
 		int baseX = setBase(rowdet);
 		int baseY = setBase(coldet);
 		double setX = Math.random() * 4;
@@ -532,7 +532,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	}
 	
 	// Helper Function 2 to Generate an Enemies' Start Position
-	public static int setBase(int number){
+	public int setBase(int number){
 		int returnNum = 0;
 		if(number == 0)
 			returnNum = 0;
@@ -549,7 +549,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 																				// RELIC INITIALIZATION FOR START OF GAME/LEVEL
 	// Set the number of Relics that player has to get in the Level
-	public static int setNumberOfRelics (){
+	public int setNumberOfRelics (){
 		int numberRelics = 0;
 		if (getLevel() <= 2)
 			numberRelics = getLevel() +1;
@@ -560,7 +560,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	
 	// Set the relic list
-	public static List<Relic> setRelicList(){
+	public List<Relic> setRelicList(){
 		List<Relic> relicList = new ArrayList <Relic>();
 		Relic[] possRelic = new Relic[setRelicArrayLength()];
 		possRelic = setRelicArray();
@@ -577,7 +577,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	// Logic: Will take levelnumber and determine which Relics to add
 	// Will return the array 
-	public static Relic[] setRelicArray(){
+	public Relic[] setRelicArray(){
 	
 		// Defining the different Relics one can obtain
 		Relic Virgil = new Relic("Virgil", 20, setRelicPosition(), false);
@@ -653,7 +653,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	// Number will be the level number to determine the number of enemies in the Enemies array
 	// Level number
-	public static int setRelicArrayLength(){
+	public int setRelicArrayLength(){
 		int relicLength = 0;
 		// CODE HERE FOR SETTING THE RELIC ARRAY LENGTH
 		if (getLevel() == 1 )
@@ -674,7 +674,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	
 	// Numbers returned are padded with an extra 1 in the least significant digit (the furthest left digit)
-	public static int[] setValidRelicZones (int numberZones){
+	public int[] setValidRelicZones (int numberZones){
 		int[] validZones = new int[numberZones];
 		if (numberZones == 4){
 			int rand = (int) (Math.random() * 5);
@@ -783,7 +783,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	// Set the position of the relic
 	// Numbers for possRelZone  are padded with an extra 1 in the least significant digit (the furthest left digit)
-	public static Position setRelicPosition(){
+	public Position setRelicPosition(){
 		Position possRelicPosition = new Position(0,0);
 		
 		// Set Relic Zones
@@ -829,7 +829,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	
 	// Helper Function to Generate a relic's Location (Position) 
-	public static Position relPos (int xstart, int ystart, int xoffset, int yoffset){
+	public Position relPos (int xstart, int ystart, int xoffset, int yoffset){
 		double x = xstart * 4;
 		double y = ystart * 4;
 		double xoff = xoffset * 4;
@@ -855,7 +855,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 //	
 																				// PLAYER UPDATE
 	// Set Player Spawn Location after Losing a Life
-	public static void playerSpawn(){
+	public void playerSpawn(){
 	int spawnZone = (int) (Math.random() * 4);
 	if (spawnZone == 0)
 		getPlayer1().setComLocation(new Position (2,2) );
@@ -872,7 +872,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	}
 	
 	//Updates the properties after a player has lost a life
-	public static void updatePlayerAfterLossLife(){
+	public void updatePlayerAfterLossLife(){
 		livesLeft -=1;	
 		Player1.setHealth(PLAYERHEALTH);
 		playerSpawn();
@@ -903,7 +903,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	 		Health < 0
 	 		
 	 */
-	public static void updateEnemyList(){
+	public void updateEnemyList(){
 		Iterator<Enemy> enemiter = getEnemies().iterator();
 		while(enemiter.hasNext()){
 			Enemy enemyCheck = enemiter.next();
@@ -916,7 +916,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		}
 	}
 	
-	public static void updateCombatantPosition(Combatant aCombatant){
+	public void updateCombatantPosition(Combatant aCombatant){
 //		List<Wall> appropriateWalls = new ArrayList<Wall>();
 //			int[] nextIntPoss = anEnemy.getNextDirection();
 		Set<Integer> nextDirection = new HashSet<Integer>();
@@ -1011,7 +1011,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		
 	}
 	
-	public static int setDamageDone(String comName){
+	public int setDamageDone(String comName){
 		int bullSpeed = 0;
 			if ( (comName == "GruntScout") || (comName == "GruntSniper") )
 				bullSpeed = 10;
@@ -1033,7 +1033,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 			//Check for player's location at a relic's location
 			// Delete the relic from the relic list and decrement the relicsLeft counter by one
 			// Update Score
-	public static void updateRelicList(){
+	public void updateRelicList(){
 		double proximity = .01;
 		Iterator<Relic> relicIter = Relics.iterator();
 		while (relicIter.hasNext()) {
@@ -1089,7 +1089,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	     * 2. Clear Level 
 	     * 3. Generate Level Pieces 
 	     */
-	    public static void nextLevel() {
+	    public void nextLevel() {
 	        setLevel(getLevel() + 1);
 	        nextLevelInitialization();
 	    }
@@ -1100,7 +1100,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	//Boolean to determine if wall collision for placement of enemy is valid
 	// Returns True => There is a wall Placement Problem
 	// Returns False => There is no wall Placement Problems
-	public static boolean wallAvoidancePlacement(Position itemPosition, List<Wall> listWalls){
+	public boolean wallAvoidancePlacement(Position itemPosition, List<Wall> listWalls){
 		boolean valid = false;
 		
 			for( Wall lWalls: listWalls) {
@@ -1126,7 +1126,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		// Determines if a wall is within contact with a combatant
 		// Returns True => Wall is within the combatant
 		// Returns False => Wall is not within the combatant
-		public static boolean isWithinWallCollision(Combatant comb, Wall wallCheck){
+		public boolean isWithinWallCollision(Combatant comb, Wall wallCheck){
 			boolean within = false;
 			//if (isVerticalWall(wallCheck)) {
 				if (isVerticalWall(wallCheck) && (comb.getDirection() == 2) )
@@ -1149,21 +1149,21 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		// Determines if a combatant's movement is vertical or horizontal
 		// Returns True => Vertical Movement
 		// Returns False => Horizontal Movement
-		public static boolean isVerticalMovement(Combatant combat){
+		public boolean isVerticalMovement(Combatant combat){
 		return ( ( combat.getDirection() ==0) || (combat.getDirection() == 1));
 	}
 		
 		//Boolean to determine if wall is Horizontal or Vertical
 		// Returns True => Vertical Wall
 		// Returns False => Horizontal Wall
-	public static boolean isVerticalWall(Wall aWall){
+	public boolean isVerticalWall(Wall aWall){
 		return (aWall.getStart().getX() == aWall.getEnd().getX());
 	}
 	
 	
 	// Start Game
 	// This will need to be adjusted based on the properties of the Constructor
-	public static ReclaimandEvadeGame startGame(){
+	public ReclaimandEvadeGame startGame(){
 		// Set the Player
 		setPlayer1(setPlayer());
 		
@@ -1351,7 +1351,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
         return wallsContain(Walls, p);
     }
     
-    public static boolean wallsContain(List<Wall> walls, Position p) {
+    public boolean wallsContain(List<Wall> walls, Position p) {
         for (Wall wall : walls) {
             if (wall.contains(p)) {
                 return true;
