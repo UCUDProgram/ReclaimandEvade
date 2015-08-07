@@ -23,6 +23,67 @@ public class Player extends Combatant{
 		
 	}
 	
+	
+	// Set Player's Weapon
+		public static String setPlayerWeapon(String pName){
+			String Weapon ="";
+			if (pName == "Spart")
+				Weapon = "Spartan Laser";
+			if (pName == "AveJoh")
+				Weapon = "Sniper Rifle";
+			if (pName == "ODST")
+				Weapon = "Shotgun";
+			if (pName == "Marine")
+				Weapon = "Battle Rifle";
+			
+			return Weapon;
+		}
+	
+		// Set Player's Damage Value
+		public static double setPlayerDamageBonus(String name){
+			double PDamage = 0;
+			if ( name == "Spart")
+				PDamage = 1.30;
+			if ( name == "AveJoh")
+				PDamage = 1.25;
+			if (name == "ODST")
+				PDamage = 1.20;
+			if (name == "Marine")
+				PDamage = 1.15;
+			return PDamage;
+		}
+		
+		// Set Player Movement Speed
+		// Alter these values based on ticks and realistic movement
+		public static double setPlayerMovementSpeed (String playerName){
+			double playerMoveSpeed = 0;
+			if (playerName == "Spart")
+				playerMoveSpeed = .05;
+			if (playerName == "AveJoh")
+				playerMoveSpeed= .07;
+			if (playerName == "ODST")
+				playerMoveSpeed = .06;
+			if (playerName == "Marine")
+				playerMoveSpeed = .08;
+			return playerMoveSpeed;
+		}
+		
+		// Set Player's Weapon Damage
+		public static int setPlayerWeaponDamage (String WeaponName){
+			int WDamage = 0;
+			if (WeaponName == "Spartan Laser")
+				WDamage = 35;
+			if (WeaponName == "Sniper Rifle")
+				WDamage = 25;
+			if (WeaponName == "Shotgun")
+				WDamage = 30;
+			if (WeaponName == "Battle Rifle")
+				WDamage = 15;
+			return WDamage;
+		}
+		
+		
+	
 	public double getDamageBonus() {
 		return damageBonus;
 	}

@@ -51,19 +51,19 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
     
 	//Global Variables
 	
-	final static int GRUNTHEALTH = 20;
-	final static int JACKALHEALTH = 25;
-	final static int ELITEHEALTH = 50;
-	final static int ZEALOTHEALTH = 60;
-	final static int HUNTERHEALTH = 75;
+//	final static int GRUNTHEALTH = 20;
+//	final static int JACKALHEALTH = 25;
+//	final static int ELITEHEALTH = 50;
+//	final static int ZEALOTHEALTH = 60;
+//	final static int HUNTERHEALTH = 75;
 	final static int PLAYERHEALTH = 100;
-	
-	final static int GRUNTSCOUTCOOLOFFTIME = 20;
-	final static int JACKALSCOUTCOOLOFFTIME = 25;
-	final static int GRUNTSNIPERCOOLOFFTIME = 30;
-	final static int JACKALSNIPERCOOLOFFTIME = 35;
-	final static int ELITECOOLOFFTIME = 40;
-	final static int HUNTERCOOLOFFTIME = 60;
+//	
+//	final static int GRUNTSCOUTCOOLOFFTIME = 20;
+//	final static int JACKALSCOUTCOOLOFFTIME = 25;
+//	final static int GRUNTSNIPERCOOLOFFTIME = 30;
+//	final static int JACKALSNIPERCOOLOFFTIME = 35;
+//	final static int ELITECOOLOFFTIME = 40;
+//	final static int HUNTERCOOLOFFTIME = 60;
 	
 	final static int PLAYERDAMAGESCORE = 110;
 	final static Position DEFAULTPOSITION = new Position(-1,-1);
@@ -236,49 +236,49 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		return (new Player(name, DEFAULTPOSITION, PLAYERHEALTH, setPlayerMovementSpeed(name), setPlayerWeapon(name) , -1, false, setPlayerDamageBonus(name)));
 	}
 	
-	// Set Player's Weapon
-	public static String setPlayerWeapon(String pName){
-		String Weapon ="";
-		if (pName == "Spart")
-			Weapon = "Spartan Laser";
-		if (pName == "AveJoh")
-			Weapon = "Sniper Rifle";
-		if (pName == "ODST")
-			Weapon = "Shotgun";
-		if (pName == "Marine")
-			Weapon = "Battle Rifle";
-		
-		return Weapon;
-	}
+//	// Set Player's Weapon
+//	public static String setPlayerWeapon(String pName){
+//		String Weapon ="";
+//		if (pName == "Spart")
+//			Weapon = "Spartan Laser";
+//		if (pName == "AveJoh")
+//			Weapon = "Sniper Rifle";
+//		if (pName == "ODST")
+//			Weapon = "Shotgun";
+//		if (pName == "Marine")
+//			Weapon = "Battle Rifle";
+//		
+//		return Weapon;
+//	}
 	
-	// Set Player's Damage Value
-	public static double setPlayerDamageBonus(String name){
-		double PDamage = 0;
-		if ( name == "Spart")
-			PDamage = 1.30;
-		if ( name == "AveJoh")
-			PDamage = 1.25;
-		if (name == "ODST")
-			PDamage = 1.20;
-		if (name == "Marine")
-			PDamage = 1.15;
-		return PDamage;
-	}
+//	// Set Player's Damage Value
+//	public static double setPlayerDamageBonus(String name){
+//		double PDamage = 0;
+//		if ( name == "Spart")
+//			PDamage = 1.30;
+//		if ( name == "AveJoh")
+//			PDamage = 1.25;
+//		if (name == "ODST")
+//			PDamage = 1.20;
+//		if (name == "Marine")
+//			PDamage = 1.15;
+//		return PDamage;
+//	}
 	
-	// Set Player Movement Speed
-	// Alter these values based on ticks and realistic movement
-	public static double setPlayerMovementSpeed (String playerName){
-		double playerMoveSpeed = 0;
-		if (playerName == "Spart")
-			playerMoveSpeed = .05;
-		if (playerName == "AveJoh")
-			playerMoveSpeed= .07;
-		if (playerName == "ODST")
-			playerMoveSpeed = .06;
-		if (playerName == "Marine")
-			playerMoveSpeed = .08;
-		return playerMoveSpeed;
-	}
+//	// Set Player Movement Speed
+//	// Alter these values based on ticks and realistic movement
+//	public static double setPlayerMovementSpeed (String playerName){
+//		double playerMoveSpeed = 0;
+//		if (playerName == "Spart")
+//			playerMoveSpeed = .05;
+//		if (playerName == "AveJoh")
+//			playerMoveSpeed= .07;
+//		if (playerName == "ODST")
+//			playerMoveSpeed = .06;
+//		if (playerName == "Marine")
+//			playerMoveSpeed = .08;
+//		return playerMoveSpeed;
+//	}
 																				// INITIALIZATION OF LEVEL
 			
 	// Function to generate all the Walls on the board
@@ -321,22 +321,22 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 //		Player1.comLocation = new Position( 1.5, 1.5);
 	}
 	
-	// Set Player's Weapon Damage
-	public static int setPlayerWeaponDamage (String WeaponName){
-		int WDamage = 0;
-		if (WeaponName == "Spartan Laser")
-			WDamage = 35;
-		if (WeaponName == "Sniper Rifle")
-			WDamage = 25;
-		if (WeaponName == "Shotgun")
-			WDamage = 30;
-		if (WeaponName == "Battle Rifle")
-			WDamage = 15;
-		return WDamage;
-	}
+//	// Set Player's Weapon Damage
+//	public static int setPlayerWeaponDamage (String WeaponName){
+//		int WDamage = 0;
+//		if (WeaponName == "Spartan Laser")
+//			WDamage = 35;
+//		if (WeaponName == "Sniper Rifle")
+//			WDamage = 25;
+//		if (WeaponName == "Shotgun")
+//			WDamage = 30;
+//		if (WeaponName == "Battle Rifle")
+//			WDamage = 15;
+//		return WDamage;
+//	}
 	
 		
-																				// ENEMY INITIALIZATION FOR START OF GAME/LEVEL
+//	THIS GROUP OF FUNCTIONS ADDRESS THE INITIALIZATION OF THE ENEMY														// ENEMY INITIALIZATION FOR START OF GAME/LEVEL
 	
 	// Set number of enemies that appear on a level
 	// Produces a number representing the number of enemies that a level will have
@@ -360,35 +360,37 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		return enemyList;
 	}
 	
-	// Alter these values based on ticks and realistic movement
-	public double setEnemyMovementSpeed (String enemyName){
-		double enemyMoveSpeed = 0;
-
-		if (enemyName == "GruntScout")
-			enemyMoveSpeed = .015;
-		if (enemyName == "JackalScout")
-			enemyMoveSpeed= .015;
-		if (enemyName == "GruntSniper")
-			enemyMoveSpeed = .01;
-		if (enemyName == "JackalSniper")
-			enemyMoveSpeed = .01;
-		if (enemyName == "Elite")
-			enemyMoveSpeed = .007;
-		if (enemyName == "Zealot")
-			enemyMoveSpeed = .007;
-		if (enemyName == "Hunter")
-			enemyMoveSpeed = .001;
-		
-		return enemyMoveSpeed;
-	}
+//	// Alter these values based on ticks and realistic movement
+//	public double setEnemyMovementSpeed (String enemyName){
+//		double enemyMoveSpeed = 0;
+//
+//		if (enemyName == "GruntScout")
+//			enemyMoveSpeed = .015;
+//		if (enemyName == "JackalScout")
+//			enemyMoveSpeed= .015;
+//		if (enemyName == "GruntSniper")
+//			enemyMoveSpeed = .01;
+//		if (enemyName == "JackalSniper")
+//			enemyMoveSpeed = .01;
+//		if (enemyName == "Elite")
+//			enemyMoveSpeed = .007;
+//		if (enemyName == "Zealot")
+//			enemyMoveSpeed = .007;
+//		if (enemyName == "Hunter")
+//			enemyMoveSpeed = .001;
+//		
+//		return enemyMoveSpeed;
+//	}
 	
-	// Set the Enemies' Initial Direction
-	// Random number generator to set Enemy's Initial Direction
-	public static int setEnemyInitialDirection(){
-		return (int)(Math.random() * 4);	
-	}
+//	// Set the Enemies' Initial Direction
+//	// Random number generator to set Enemy's Initial Direction
+//	public int setEnemyInitialDirection(){
+//		return (int)(Math.random() * 4);	
+//	}
 	
 	// Logic: Will take levelnumber and determine which enemies to add
+//	CONSTRUCTOR FOR THE ENEMY CLASS WILL BE DIFFERENT
+//	THINK ABOUT HOW THE CONSTRUCTOR CLASS WILL BE DONE AND IMPLEMENTED
 	// Will return the array 
 	public Enemy[] setEnemyArray(){
 		int arrayIndex = setEnemyArrayLength();
@@ -547,6 +549,7 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		return returnNum;
 	}
 	
+//	THIS GROUP OF FUNCTIONS ADDRESS THE INITIALIZATION OF THE RELICS
 																				// RELIC INITIALIZATION FOR START OF GAME/LEVEL
 	// Set the number of Relics that player has to get in the Level
 	public int setNumberOfRelics (){
@@ -576,6 +579,8 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 	
 	
 	// Logic: Will take levelnumber and determine which Relics to add
+//	CONSTRUCTOR FOR THE RELIC CLASS WILL BE DIFFERENT
+//	THINK ABOUT HOW THE CONSTRUCTOR CLASS WILL BE DONE AND IMPLEMENTED
 	// Will return the array 
 	public Relic[] setRelicArray(){
 	
@@ -1215,6 +1220,21 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		
 	}
 	
+	public void initializeEnemyList(){
+		
+	}
+	
+	public void initializeRelicList(){
+		
+	}
+	
+	public void drawRelics(){
+		
+	}
+	
+	public void drawEnemy(){
+		
+	}
 	
 	@Override
 	public void render(float delta) {
