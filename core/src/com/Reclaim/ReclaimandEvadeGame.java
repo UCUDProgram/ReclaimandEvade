@@ -398,13 +398,25 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		Enemy[] possEnemy = new Enemy[arrayIndex];
 	
 		// Defining the different enemies one could face
-		Enemy Elite = new Enemy("Elite", setEnemyPosition(), ELITEHEALTH, setEnemyMovementSpeed("Elite"), "Plasma Rifle", setEnemyInitialDirection(), false, 40);
-		Enemy Zealot = new Enemy("Zealot", setEnemyPosition(), ZEALOTHEALTH, setEnemyMovementSpeed("Zealot"), "Energy Sword", setEnemyInitialDirection(), false, 0);
-		Enemy GruntScout = new Enemy("GruntScout", setEnemyPosition(), GRUNTHEALTH, setEnemyMovementSpeed("GruntScout"), "Plasma Pistol", setEnemyInitialDirection(), false, 20);
-		Enemy JackalScout = new Enemy("JackalScout", setEnemyPosition(), JACKALHEALTH, setEnemyMovementSpeed("JackalScout"), "Plasma Pistol", setEnemyInitialDirection(), false, 25);
-		Enemy Hunter = new Enemy("Hunter", setEnemyPosition(), HUNTERHEALTH, setEnemyMovementSpeed("Hunter"), "Plasma Rockets", setEnemyInitialDirection(), false, 60);
-		Enemy GruntSniper = new Enemy("GruntSniper", setEnemyPosition(), GRUNTHEALTH, setEnemyMovementSpeed("GruntSniper"), "Needler", setEnemyInitialDirection(), false, 30);
-		Enemy JackalSniper = new Enemy("JackalSniper", setEnemyPosition(), JACKALHEALTH, setEnemyMovementSpeed("JackalSniper"), "Beam Rifle", setEnemyInitialDirection(), false, 35);
+//		Enemy Elite = new Enemy("Elite", setEnemyPosition(), ELITEHEALTH, setEnemyMovementSpeed("Elite"), "Plasma Rifle", setEnemyInitialDirection(), false, 40);
+//		Enemy Zealot = new Enemy("Zealot", setEnemyPosition(), ZEALOTHEALTH, setEnemyMovementSpeed("Zealot"), "Energy Sword", setEnemyInitialDirection(), false, 0);
+//		Enemy GruntScout = new Enemy("GruntScout", setEnemyPosition(), GRUNTHEALTH, setEnemyMovementSpeed("GruntScout"), "Plasma Pistol", setEnemyInitialDirection(), false, 20);
+//		Enemy JackalScout = new Enemy("JackalScout", setEnemyPosition(), JACKALHEALTH, setEnemyMovementSpeed("JackalScout"), "Plasma Pistol", setEnemyInitialDirection(), false, 25);
+//		Enemy Hunter = new Enemy("Hunter", setEnemyPosition(), HUNTERHEALTH, setEnemyMovementSpeed("Hunter"), "Plasma Rockets", setEnemyInitialDirection(), false, 60);
+//		Enemy GruntSniper = new Enemy("GruntSniper", setEnemyPosition(), GRUNTHEALTH, setEnemyMovementSpeed("GruntSniper"), "Needler", setEnemyInitialDirection(), false, 30);
+//		Enemy JackalSniper = new Enemy("JackalSniper", setEnemyPosition(), JACKALHEALTH, setEnemyMovementSpeed("JackalSniper"), "Beam Rifle", setEnemyInitialDirection(), false, 35);
+//		
+		
+		Enemy GruntSniper = new Enemy(1,setEnemyPosition());
+		Enemy JackalSniper = new Enemy(2,setEnemyPosition());
+		Enemy GruntScout = new Enemy(3,setEnemyPosition());
+		Enemy JackalScout = new Enemy(4,setEnemyPosition());
+		Enemy Elite = new Enemy(5,setEnemyPosition() );
+		Enemy Zealot = new Enemy(6,setEnemyPosition());
+		Enemy Hunter = new Enemy(7,setEnemyPosition());
+		
+		
+		
 		
 		if (getLevel() == 1 ) {
 			possEnemy[0] = GruntScout;
