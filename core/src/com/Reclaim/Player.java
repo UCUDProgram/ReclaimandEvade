@@ -19,70 +19,101 @@ public class Player extends Combatant{
 	// Getters and Setters for playerLocation, health, direction and fire
 	// Getters for name, movementSpeed, weapon and damBonus
 	
-	public Player (){
-		
+	public Player (int playNum){
+		health = 100;
+		name = setPlayerName(playNum);
+		weapon = setPlayerWeapon(playNum);
+		damageBonus = setPlayerDamageBonus(playNum);
+		movementSpeed = setPlayerMovementSpeed(playNum);
+		direction = setPlayerInitialDirection();
+		fire = false;
 	}
 	
+	/*
+	 * Spartan = 1
+	 * Avery Johnson = 2
+	 * ODST = 3
+	 * Marine = 4
+	 */
 	
-	// Set Player's Weapon
-		public static String setPlayerWeapon(String pName){
-			String Weapon ="";
-			if (pName == "Spart")
-				Weapon = "Spartan Laser";
-			if (pName == "AveJoh")
-				Weapon = "Sniper Rifle";
-			if (pName == "ODST")
-				Weapon = "Shotgun";
-			if (pName == "Marine")
-				Weapon = "Battle Rifle";
-			
-			return Weapon;
-		}
+	/*
+	 * Set Player Name
+	 */
+	public String setPlayerName(int pNum){
+		if (pNum == 1)
+			return "Spartan";
+		else if (pNum == 2)
+			return "Avery Johnson";
+		else if (pNum == 3)
+			return"ODST";
+		else
+			return "Marine";
+	}
 	
-		// Set Player's Damage Value
-		public static double setPlayerDamageBonus(String name){
-			double PDamage = 0;
-			if ( name == "Spart")
-				PDamage = 1.30;
-			if ( name == "AveJoh")
-				PDamage = 1.25;
-			if (name == "ODST")
-				PDamage = 1.20;
-			if (name == "Marine")
-				PDamage = 1.15;
-			return PDamage;
-		}
+	/*
+	 * Set Player's Weapon
+	 */
+	public static String setPlayerWeapon(int pNum){
+		if (pNum == 1)
+			return "Spartan Laser";
+		else if (pNum == 2)
+			return "Sniper Rifle";
+		else if (pNum == 3)
+			return"Shotgun";
+		else
+			return "Battle Rifle";
+	}
+	
+	/*
+	 * Set Player's Damage Value
+	 */
+	public static double setPlayerDamageBonus(int pNum){
+		if ( pNum == 1)
+			return 1.30;
+		else if ( pNum == 2)
+			return 1.25;
+		else if (pNum == 3)
+			return 1.20;
+		else
+			return 1.15;
+	}
 		
-		// Set Player Movement Speed
-		// Alter these values based on ticks and realistic movement
-		public static double setPlayerMovementSpeed (String playerName){
-			double playerMoveSpeed = 0;
-			if (playerName == "Spart")
-				playerMoveSpeed = .05;
-			if (playerName == "AveJoh")
-				playerMoveSpeed= .07;
-			if (playerName == "ODST")
-				playerMoveSpeed = .06;
-			if (playerName == "Marine")
-				playerMoveSpeed = .08;
-			return playerMoveSpeed;
-		}
+	/*
+	 * Set Player Movement Speed
+	 */
+	public static double setPlayerMovementSpeed (int pNum){
+		if (pNum == 1)
+			return .05;
+		else if (pNum == 2)
+			return .07;
+		else if (pNum == 3)
+			return .06;
+		else
+			return .08;
+	}
 		
-		// Set Player's Weapon Damage
-		public static int setPlayerWeaponDamage (String WeaponName){
-			int WDamage = 0;
-			if (WeaponName == "Spartan Laser")
-				WDamage = 35;
-			if (WeaponName == "Sniper Rifle")
-				WDamage = 25;
-			if (WeaponName == "Shotgun")
-				WDamage = 30;
-			if (WeaponName == "Battle Rifle")
-				WDamage = 15;
-			return WDamage;
-		}
+	/*
+	 * Set Player's Weapon Damage
+	 */
+	public static int setPlayerWeaponDamage (int pNum){
+		if (pNum == 1)
+			return 35;
+		if (pNum == 2)
+			return 25;
+		if (pNum == 3)
+			return 30;
+		else
+			return 15;
+	}
 		
-		
+	
+	/*
+	 * Set the Enemies' Initial Direction
+	 *  Random number generator to set Enemy's Initial Direction
+	 */
+	public int setPlayerInitialDirection(){
+		return (int)(Math.random() * 4);
+		}	
 	
 	public double getDamageBonus() {
 		return damageBonus;
@@ -107,15 +138,5 @@ public class Player extends Combatant{
         
         return next;
     }
-	
-	
-	
-//  Create the toString Method once all the properties have been Decided
-//	@Override
-//	public String toString() {
-//		return "Player [damageBonus=" + damageBonus + ", name=" + name
-//				+ ", xloc=" + xloc + ", yloc=" + yloc + ", health=" + health
-//				+ ", movementSpeed=" + movementSpeed + ", weapon=" + weapon
-//				+ ", direction=" + direction + ", fire=" + fire + "]";
-//	}
+
 }

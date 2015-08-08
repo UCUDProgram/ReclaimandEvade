@@ -216,24 +216,26 @@ public class ReclaimandEvadeGame implements Screen, InputProcessor, ApplicationL
 		// Replace "PlayerLoc with Player Spawn Location
 		// Replace "PlayerDirection with Player Direction
 		// Replaced "PlayerFire with False
-		String name = "";
+		int playNumber;
 		if (playerSelection == 0){
-			name = "Spart";
+			playNumber = 1;
 		//	return (new Player(name, "SpartLoc", PLAYERHEALTH, .5, setPlayerWeapon(name) , "SpartanDirection", false, setPlayerDamageBonus(name)));
 		}
-		if (playerSelection == 1){
-			name = "AveJoh";
+		else if (playerSelection == 1){
+			playNumber = 2;
 			//return (new Player("AveJoh", "AveJohLoc", PLAYERHEALTH, .5, setPlayerWeapon(name), "AveJohDirection", false, setPlayerDamageBonus(name)));
 		}
-		if (playerSelection == 2){
-			name = "ODST";
+		else if (playerSelection == 2){
+			playNumber = 3;
 		//	return (new Player("ODST", "ODSTLoc", PLAYERHEALTH, .5, setPlayerWeapon(name), "ODSTDirection", false, setPlayerDamageBonus(name)));
 		}
-		if (playerSelection == 3){
-			name = "Marine";
+		else {
+			playNumber = 4;
 	//		return (new Player("Marine", "MarineLoc", PLAYERHEALTH, .5, setPlayerWeapon(name), "MarineDirection", false, setPlayerDamageBonus(name)));
 		}
-		return (new Player(name, DEFAULTPOSITION, PLAYERHEALTH, setPlayerMovementSpeed(name), setPlayerWeapon(name) , -1, false, setPlayerDamageBonus(name)));
+		return (new Player(playNumber) );
+		
+//		return (new Player(name, DEFAULTPOSITION, PLAYERHEALTH, setPlayerMovementSpeed(name), setPlayerWeapon(name) , -1, false, setPlayerDamageBonus(name)));
 	}
 	
 //	// Set Player's Weapon
