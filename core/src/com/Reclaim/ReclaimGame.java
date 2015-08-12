@@ -56,7 +56,7 @@ public class ReclaimGame extends Game {
 		
 		// Game Screen
 		if(next==5){
-			current = new ReclaimandEvadeGame(this, new Player() );
+			current = new ReclaimandEvadeGame(this, new Player(int playerType) );
 			((ReclaimandEvadeGame) current).create();
 			raEGame = current;
 		}

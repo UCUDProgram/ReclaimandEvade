@@ -115,6 +115,12 @@ public class Player extends Combatant{
 		return (int)(Math.random() * 4);
 		}	
 	
+	/*
+	 * Set Player Image Array
+	 */
+	
+	
+	
 	public double getDamageBonus() {
 		return damageBonus;
 	}
