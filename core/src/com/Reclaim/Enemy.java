@@ -4,9 +4,12 @@ package com.Reclaim;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.graphics.Texture;
+
 
 /*	
- * REDO THE PLAYER CLASS BASED ON GAMER SELECTING THEIR GAME CHARACTER 
+ * REDO THE ENEMY CLASS BASED ON THE ENEMIES IN THE GAME
+ * ALSO, RENAME THE ENEMIES, BECAUSE OF THEIR ASSOCIATION WITH HALO 
  */
 
 
@@ -15,6 +18,8 @@ public class Enemy extends Combatant{
 	private int coolOffTime;
 	private int coolOffMax;
 	private int[] nextDirection;
+	private String[] enemyImageArray;
+	private Texture enemyImage;
 	
 //	public Enemy (String name, Position enemyLocation , int health, double movementSpeed, String weapon, int direction, boolean fired,int coolOffTime ){
 //		//xloc, yloc
@@ -41,16 +46,18 @@ public class Enemy extends Combatant{
 	 * Constructor for the enemy that passes in an integer and a position
 	 */
 	public Enemy (int enemType, Position enemLoc){
-		this.comLocation = enemLoc;
-		this.name = setEnemyName(enemType);
-		this.weapon = setEnemyWeapon(enemType);
-		this.health = setEnemyInitialHealth(enemType);
-		this.coolOffMax = setEnemyInitialCoolDownTime(enemType);
-		this.coolOffTime = setEnemyInitialCoolDownTime(enemType);
-		this.movementSpeed = setEnemyMovementSpeed(enemType);
-		this.direction = setEnemyInitialDirection();
-		this.nextDirection = setNextPossDirection();
-		this.fire = false;
+		comLocation = enemLoc;
+		name = setEnemyName(enemType);
+		weapon = setEnemyWeapon(enemType);
+		health = setEnemyInitialHealth(enemType);
+		coolOffMax = setEnemyInitialCoolDownTime(enemType);
+		coolOffTime = setEnemyInitialCoolDownTime(enemType);
+		movementSpeed = setEnemyMovementSpeed(enemType);
+		direction = setEnemyInitialDirection();
+		nextDirection = setNextPossDirection();
+		enemyImageArray = setEnemyImageArray(enemType);
+		enemyImage = setEnemyImage();
+		fire = false;
 	}
 
 	/*
@@ -157,6 +164,30 @@ public class Enemy extends Combatant{
 			return (int)(Math.random() * 4);
 		}
 	
+	/*
+	 * Set the Enemy Image Array
+	 * Image Array is based on the movement of the enemy in an up, down, left & right direction
+	 * Create an xml file to store all the images, as strings, and then initialize the array
+	 */
+	public String[] setEnemyImageArray(int enemNum){
+		String[] images = new String[4];
+		
+		
+	}
+	
+	public Texture getEnemyImage(){
+		return enemyImage;
+	}
+	
+	
+	/*
+	 * Set the Image of the Enemy
+	 */
+	public void setEmenyImage(){
+		enemyImage = new Texture(enemyImageArray[direction]);
+	}
+	
+	
 	
 	/*
 	 * Set the array for choosing the next direction
@@ -175,9 +206,6 @@ public class Enemy extends Combatant{
 	// Getters and Setters for enemyLocation, health, direction, fired and coolOffTime
 	// Getters for name, movement Speed and weapon
 	
-	public void setCoolOffMax(int coolOffMax) {
-		this.coolOffMax = coolOffMax;
-	}
 
 	// Set the coolOffTime
 	public void setCoolOffTime(){

@@ -1,14 +1,19 @@
 package com.Reclaim;
+
+import com.badlogic.gdx.graphics.Texture;
 //import edu.udel.jatlas.gameframework.Position;
 
 
 /*	
  * REDO THE PLAYER CLASS BASED ON GAMER SELECTING THEIR GAME CHARACTER 
+ * ALSO, RENAME THE ENEMIES, BECAUSE OF THEIR ASSOCIATION WITH HALO 
  */
 
 
 public class Player extends Combatant{
 	private double damageBonus;
+	private Texture playerImage;
+	private String[] playerImageArray;
 
 	public Player (String name, Position playerLocation , int health, double movementSpeed, String weapon, int direction, boolean fire, double damBonus){
 		super(name, playerLocation, health, movementSpeed, weapon, direction, fire);
@@ -20,13 +25,15 @@ public class Player extends Combatant{
 	// Getters for name, movementSpeed, weapon and damBonus
 	
 	public Player (int playNum){
-		health = 100;
 		name = setPlayerName(playNum);
 		weapon = setPlayerWeapon(playNum);
 		damageBonus = setPlayerDamageBonus(playNum);
 		movementSpeed = setPlayerMovementSpeed(playNum);
 		direction = setPlayerInitialDirection();
+		health = 100;
 		fire = false;
+		playerImage = setPlayerImage();
+		playerImageArray = setPlayerImageArray(playNum);
 	}
 	
 	/*
@@ -119,30 +126,61 @@ public class Player extends Combatant{
 	 * Set Player Image Array
 	 */
 	
+	/*
+	 * Set the Player Image Array
+	 * Image Array is based on the movement of the enemy in an up, down, left & right direction
+	 * Create an xml file to store all the images, as strings, and then initialize the array
+	 */
+	public String[] setPlayerImageArray(int playNum){
+		String[] images = new String[4];
+		
+		
+	}
+	
+	public Texture getPlayerImage(){
+		return playerImage;
+	}
+	
+	
+	/*
+	 * Set the Image of the Enemy
+	 */
+	public void setPlayerImage(){
+		playerImage = new Texture(playerImageArray[direction]);
+	}
+	
 	
 	
 	public double getDamageBonus() {
 		return damageBonus;
 	}
+
 	
-	public Position getNextPosition(int direction) {
-        Position head = getComLocation();
-        Position next = head;
-        
-        if (direction == DIRECTION_UP) {
-            next = new Position(head.getColumn(), head.getRow() - 1);
-        }
-        else if (direction == DIRECTION_RIGHT) {
-            next = new Position(head.getColumn() + 1, head.getRow());
-        }
-        else if (direction == DIRECTION_DOWN) {
-            next = new Position(head.getColumn(), head.getRow() + 1);
-        }
-        else if (direction == DIRECTION_LEFT) {
-            next = new Position(head.getColumn() - 1, head.getRow());
-        }
-        
-        return next;
-    }
+	
+	
+	
+	
+	
+	
+	
+//	public Position getNextPosition(int direction) {
+//        Position head = getComLocation();
+//        Position next = head;
+//        
+//        if (direction == DIRECTION_UP) {
+//            next = new Position(head.getColumn(), head.getRow() - 1);
+//        }
+//        else if (direction == DIRECTION_RIGHT) {
+//            next = new Position(head.getColumn() + 1, head.getRow());
+//        }
+//        else if (direction == DIRECTION_DOWN) {
+//            next = new Position(head.getColumn(), head.getRow() + 1);
+//        }
+//        else if (direction == DIRECTION_LEFT) {
+//            next = new Position(head.getColumn() - 1, head.getRow());
+//        }
+//        
+//        return next;
+//    }
 
 }
