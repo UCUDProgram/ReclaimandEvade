@@ -25,13 +25,13 @@ public class Combatant {
     public static final boolean DID_NOT_FIRE = false;
 	
 	public Combatant(String name, Position comLocation, int health, double movementSpeed, String weapon, int direction, boolean fired) {
-		this.name = name;
-		this.comLocation = comLocation;
-		this.health = health;
-		this.movementSpeed = movementSpeed;
-		this.weapon = weapon;
-		this.direction = direction;
-		this.fire = fired;
+		name = name;
+		comLocation = comLocation;
+		health = health;
+		movementSpeed = movementSpeed;
+		weapon = weapon;
+		direction = direction;
+		fire = fired;
 	}
 
 	public Combatant(){
@@ -100,14 +100,4 @@ public class Combatant {
 	public String getWeapon() {
 		return weapon;
 	}
-	
-	
-	//  Create the toString Method once all the properties have been Decided
-//	@Override
-//	public String toString() {
-//		return "Combatant [name=" + name + ", xloc=" + xloc + ", yloc=" + yloc
-//				+ ", health=" + health + ", movementSpeed=" + movementSpeed
-//				+ ", weapon=" + weapon + ", direction=" + direction + ", fire="
-//				+ fire + "]";
-//	}	
 }

@@ -9,22 +9,26 @@ public class Bullet {
 	private int bulletDirection;
 	private Position bulletLocation;
 	private boolean playerfired;
-	private boolean enemyfired;
+//	private boolean enemyfired;
 	
 	
 	public Bullet(double bulletDamage , double bulletSpeed, int bulletHealth, int bulletDir, Position bulletLoc, boolean pFired, boolean eFired) {
-		this.bulletDamage = bulletDamage;
-		this.bulletSpeed = bulletSpeed;
-		this.bulletHealth = bulletHealth;
-		this.bulletDirection = bulletDir;
-		this.bulletLocation = bulletLoc;
-		this.playerfired = pFired;
-		this.enemyfired = eFired;
+		bulletDamage = bulletDamage;
+		bulletSpeed = bulletSpeed;
+		bulletHealth = 100;
+		bulletDirection = bulletDir;
+		bulletLocation = bulletLoc;
+		playerfired = pFired;
+//		this.enemyfired = eFired;
 	}
 	
 	// Getters and Setters for bulletHealth and bulletLocation
 	// Getters for bulletDamage, bulletSpeed, playerfired, enemyfired and bulletDirection
+
 	
+	/*
+	 * Bullet Health is either 100 or 0
+	 */
 	
 	// Get Bullet Health
 	public int getBulletHealth(){
@@ -55,9 +59,9 @@ public class Bullet {
 		return playerfired;
 	}
 
-	public boolean isEnemyfired() {
-		return enemyfired;
-	}
+//	public boolean isEnemyfired() {
+//		return enemyfired;
+//	}
 
 	public void setBulletHealth(int bulletHealth) {
 		this.bulletHealth = bulletHealth;

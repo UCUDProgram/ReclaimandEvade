@@ -1,10 +1,15 @@
 package com.Reclaim;
 //import edu.udel.jatlas.gameframework.Position;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.XmlReader;
+import com.badlogic.gdx.utils.XmlReader.Element;
 
 
 /*	
@@ -14,32 +19,20 @@ import com.badlogic.gdx.graphics.Texture;
 
 
 public class Enemy extends Combatant{
-	private int maxHealth;
-	private int coolOffTime;
-	private int coolOffMax;
+	private int maxHealth,coolOffTime, coolOffMax;
 	private int[] nextDirection;
 	private String[] enemyImageArray;
 	private Texture enemyImage;
-	
-//	public Enemy (String name, Position enemyLocation , int health, double movementSpeed, String weapon, int direction, boolean fired,int coolOffTime ){
-//		//xloc, yloc
-//		super(name, enemyLocation, health, movementSpeed, weapon, direction, fired);
-//		this.maxHealth = health;
-//		this.coolOffTime = coolOffTime;
-////		int coolOffMax = 
-//		setCoolOffMax(coolOffTime);
-//		this.nextDirection = setNextPossDirection();
-//		
-//	}
 
 	/*
-	 * Grunt Scout Enemy = 1
-	 * Jackal Scout Enemy = 2
-	 * Grunt Sniper Enemy = 3
-	 * Jackal Sniper Enemy = 4
-	 * Elite Enemy = 5
-	 * Zealot Enemy = 6
-	 * Hunter Enemy = 7
+	 * Ghost Enemy = 1
+	 * Witch Enemy = 2
+	 * Wizard Enemy = 3
+	 * Goblin Enemy = 4
+	 * Troll Enemy = 5
+	 * Dragon Enemy = 6
+	 * Ogre Enemy = 7
+	 * Gargoyle Enemy = 8
 	 */
 
 	/*
@@ -55,8 +48,8 @@ public class Enemy extends Combatant{
 		movementSpeed = setEnemyMovementSpeed(enemType);
 		direction = setEnemyInitialDirection();
 		nextDirection = setNextPossDirection();
-		enemyImageArray = setEnemyImageArray(enemType);
-		enemyImage = setEnemyImage();
+		enemyImageArray = setEnemyImageArray();
+		setEnemyImage();
 		fire = false;
 	}
 
@@ -169,9 +162,25 @@ public class Enemy extends Combatant{
 	 * Image Array is based on the movement of the enemy in an up, down, left & right direction
 	 * Create an xml file to store all the images, as strings, and then initialize the array
 	 */
-	public String[] setEnemyImageArray(int enemNum){
+	public String[] setEnemyImageArray(){
 		String[] images = new String[4];
 		
+		try{Element root = new XmlReader().parse(Gdx.files.internal("CombatantImage.xml"));
+		Element combatant = root.getChildByName("Enemy");
+		Element image = combatant.getChildByName(getName() );
+		Element up = image.getChildByName("up");
+		images[0] = up.getText();
+		Element down = image.getChildByName("down");
+		images[1] = up.getText();
+		Element left = image.getChildByName("left");
+		images[2] = up.getText();
+		Element right = image.getChildByName("right");
+		images[3] = up.getText();
+		}
+		catch(IOException e){
+		}
+		
+		return images;
 		
 	}
 	
@@ -183,7 +192,7 @@ public class Enemy extends Combatant{
 	/*
 	 * Set the Image of the Enemy
 	 */
-	public void setEmenyImage(){
+	public void setEnemyImage(){
 		enemyImage = new Texture(enemyImageArray[direction]);
 	}
 	
@@ -216,6 +225,8 @@ public class Enemy extends Combatant{
 			coolOffTime = coolOffMax;
 		}
 	}
+	
+	
 	
 	public void setNextDirection(int[] nextDirection) {
 		this.nextDirection = nextDirection;

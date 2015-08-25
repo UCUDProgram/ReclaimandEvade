@@ -1,0 +1,66 @@
+<<!-- 
+Stores the strings to represent the images array for the enemies
+Index 0 = up
+Index 1 = down
+Index 2 = left
+Index 3 = right
+For each enemy I could group the images under one option, but this will be used to make sure that the right images are stored 
+and referenced in the proper position.
+
+ -->
+<root>
+    <Enemy>
+    	<Ghost>
+    	   <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+    	</Ghost>    
+        <Witch>
+            <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+        </Witch>
+        <Wizard>
+            <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+        </Wizard>
+        <Goblin>
+            <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+        </Goblin>
+        <Troll>
+            <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+        </Troll>
+        <Dragon>
+            <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+        </Dragon>
+        <Ogre>
+            <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+        </Ogre>
+        <Gargoyle>
+            <up> </up>
+    	   <down> </down>
+    	   <left> </left>
+    	   <right> </right>
+        </Gargoyle>
+ 	</Enemy>
+ 	<Player>
+ 	    
+ 	</Player>
+    
+ </root>
