@@ -32,8 +32,8 @@ public class Player extends Combatant{
 		direction = setPlayerInitialDirection();
 		health = 100;
 		fire = false;
-		playerImage = setPlayerImage();
 		playerImageArray = setPlayerImageArray(playNum);
+		playerImage = setPlayerImage();
 	}
 	
 	/*
@@ -145,8 +145,8 @@ public class Player extends Combatant{
 	/*
 	 * Set the Image of the Enemy
 	 */
-	public void setPlayerImage(){
-		playerImage = new Texture(playerImageArray[direction]);
+	public Texture setPlayerImage(){
+		return new Texture(playerImageArray[direction]);
 	}
 	
 	
